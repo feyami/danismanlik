@@ -21,12 +21,18 @@ const Comment = ({ show, setShowComment, id }) => {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
+        //* Cookie'den tokeni alıyoruz
+        const jwtToken = document.cookie
+        .split('; ')
+        .find(row => row.startsWith('jwt='))
+        .split('=')[1];
       const { data } = await axios.post(
         `${process.env.REACT_APP_BASE_URI}/api/lawyers/${lawyerid}/reviews`,
         {
           user: userInfo,
           comment: comment,
           rating: stars,
+          token: jwtToken
         },
         {
           withCredentials: true,
