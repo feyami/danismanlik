@@ -20,6 +20,7 @@ const isAuth = (req, res, next) => {
   const token = req.body.token;
   console.log("token:", token);
   //console.log("req", req);
+  console.log("secret", process.env.JWT_SECRET);
   if (token) {
     jwt.verify(token, process.env.JWT_SECRET, (err, decode) => {
       if (err) {
@@ -42,6 +43,7 @@ const isLawyer = (req, res, next) => {
         res.status(401).send({ message: "Invalid Token" });
       } else {
         req.lawyer = decode;
+        
         next();
       }
     });
