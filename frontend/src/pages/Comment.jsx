@@ -34,6 +34,7 @@ const Comment = ({ show, setShowComment, id }) => {
             Accept: "application/json",
             "Content-Type": "application/json",
             "Access-Control-Allow-Credentials": true,
+            "crossDomain": true
           },
         }
       );

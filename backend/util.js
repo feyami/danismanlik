@@ -17,7 +17,7 @@ const generateToken = (user) => {
 
 const isAuth = (req, res, next) => {
   console.log("util:", req.body.user);
-  const token = req.cookies;
+  const token = req.cookies.jwt;
   console.log("token:", token);
   if (token) {
     jwt.verify(token, process.env.JWT_SECRET, (err, decode) => {
