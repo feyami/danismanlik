@@ -36,11 +36,14 @@ const Comment = ({ show, setShowComment, id }) => {
         },
         {
           withCredentials: true,
+           
           headers: {
-            "Accept": "application/json",
+            Accept: "application/json",
             "Content-Type": "application/json",
             "Access-Control-Allow-Credentials": true,
-            "crossDomain": true
+            "crossDomain": true,
+            "Access-Control-Allow-Origin": "*",
+            Authorization: `Bearer ${jwtToken}`,
           },
         }
       );

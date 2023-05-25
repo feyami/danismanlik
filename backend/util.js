@@ -19,7 +19,7 @@ const isAuth = (req, res, next) => {
   console.log("util:", req.body.user);
   const token = req.body.token;
   console.log("token:", token);
-  console.log("cookkk", req.cookies.jwt);
+  console.log("cookkk", req.headers.authorization);
   console.log("secret", process.env.JWT_SECRET);
   if (token) {
     jwt.verify(token, process.env.JWT_SECRET, (err, decode) => {
