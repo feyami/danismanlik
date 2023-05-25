@@ -33,18 +33,6 @@ const Comment = ({ show, setShowComment, id }) => {
           comment: comment,
           rating: stars,
           token: jwtToken
-        },
-        {
-          withCredentials: true,
-           
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Credentials": true,
-            "crossDomain": true,
-            "Access-Control-Allow-Origin": "*",
-            Authorization: `Bearer ${jwtToken}`,
-          },
         }
       );
 

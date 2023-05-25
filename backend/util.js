@@ -16,18 +16,12 @@ const generateToken = (user) => {
 };
 
 const isAuth = (req, res, next) => {
-  console.log("util:", req.body.user);
   const token = req.body.token;
-  console.log("token:", token);
-  console.log("cookkk", req.headers.authorization);
-  console.log("secret", process.env.JWT_SECRET);
   if (token) {
     jwt.verify(token, process.env.JWT_SECRET, (err, decode) => {
       if (err) {
-        console.error("err",err);
         res.status(401).send({ message: "Invalid Token" });
       } else {
-        console.log("decode:", decode);
         req.user = decode;
         next();
       }
