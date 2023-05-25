@@ -19,6 +19,7 @@ const isAuth = (req, res, next) => {
   console.log("util:", req.body.user);
   const token = req.cookies.jwt;
   console.log("token:", token);
+  console.log("req", req);
   if (token) {
     jwt.verify(token, process.env.JWT_SECRET, (err, decode) => {
       if (err) {
